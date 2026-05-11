@@ -287,7 +287,6 @@ public class Player : MonoBehaviour
         hp = MathF.Min(hp + h, maxHp);
         GameManager.Instance.UpdateHealth();
 
-
     }
 
 }
