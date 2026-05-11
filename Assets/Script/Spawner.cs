@@ -13,8 +13,9 @@ public class Spawner : MonoBehaviour
 
     public List<Transform> spawnPosList1 = new List<Transform>();
     public List<Transform> spawnPosList2 = new List<Transform>();
+    public List<Transform> spawnPosList3 = new List<Transform>();
 
-    public int remainEnemies = 4; //剩余敌人数量
+    public int remainEnemies = 13; //剩余敌人数量
     public bool isSpawning = true; //生成器的状态
 
     private void Awake()
@@ -34,7 +35,7 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         //1层敌人死光了
-        if (remainEnemies == 0 && isSpawning)
+        if (remainEnemies == 9 && isSpawning)
         {
             //开启栅栏
             Gate.Instance.OpenGate();
@@ -44,13 +45,24 @@ public class Spawner : MonoBehaviour
 
             //关闭生成器
             isSpawning = false;
+        }
 
+        if (remainEnemies == 6 && !isSpawning)
+        {
+            //开启栅栏
+            Gate2.Instance.OpenGate();
+            Gate3.Instance.OpenGate();
+
+            //生成第三波敌人
+            SpawnEnemy(spawnPosList3, enemy2);
+
+            //关闭生成器
+            isSpawning = true;
 
         }
 
         if (remainEnemies == 0 && !GameManager.Instance.isWin)
         {
-            Debug.Log("第一波敌人清除");
             GameManager.Instance.Win();
         }
 
@@ -66,4 +78,5 @@ public class Spawner : MonoBehaviour
 
         }
     }
+
 }

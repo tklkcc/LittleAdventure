@@ -23,8 +23,6 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
-
-
         timer += Time.deltaTime;
 
         //5秒后销毁
@@ -61,7 +59,5 @@ public class Bullet : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(direction);
         //再给x轴旋转90
         transform.Rotate(90f, 0, 0, Space.Self);
-
-
     }
 }
