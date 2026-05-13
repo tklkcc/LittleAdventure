@@ -24,7 +24,13 @@ public class Medical : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Player.Instance.AddHealth(med);
+            if(Player.Instance.hp < Player.Instance.maxHp && Player.Instance.coin > 0)
+            {
+                Player.Instance.AddHealth(med);
+                Player.Instance.ReduceCoin(50);
+                PlayerVFXManager.Instance.HealthVFX();
+            }
+           
         }
     }
 }

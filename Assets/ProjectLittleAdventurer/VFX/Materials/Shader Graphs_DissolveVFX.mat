@@ -9,8 +9,6 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_DissolveVFX
   m_Shader: {fileID: -6465566751694194690, guid: 2555945c018129a4abf2ea934de10bba, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -19,7 +17,6 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -69,7 +66,7 @@ Material:
     - _offset: 0.2
     m_Colors:
     - Blink_Color: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
-    - Edge_Color: {r: 29.85706, g: 0, b: 0, a: 0}
+    - Edge_Color: {r: 0.44000584, g: 13.161825, b: 0, a: 0}
     - Emssion_Color: {r: 0, g: 1, b: 0.8792124, a: 1}
     - _Color: {r: 1, g: 0.29209298, b: 0, a: 1}
   m_BuildTextureStacks: []

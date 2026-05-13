@@ -107,7 +107,7 @@ public class Enemy2 : EnemyBase
         // Debug.Log("距离" + distance);
 
         //超出视觉范围
-        if (distance > 8)
+        if (distance > 12)
         {
             //停止追逐
             _nav.speed = 0f; //设置速度为0
@@ -117,16 +117,14 @@ public class Enemy2 : EnemyBase
         }
 
         //发现玩家 追逐
-        if (distance >= 6)
+        if (distance >= 10)
         {
-            // 一定在2-6之间
             _nav.speed = 3.5f; //设置速度
             _nav.SetDestination(targetPlayer.position); //设置目标
             _anim.SetFloat("speed", _nav.speed); //设置速度
         }
         else
         {
-
             _nav.SetDestination(targetPlayer.position); //设置目标
             _nav.speed = 0f; //设置速度为0
             _anim.SetFloat("speed", _nav.speed); //设置速度

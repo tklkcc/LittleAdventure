@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Rigidbody _rb;
     public Animator _anim;
 
-    public float moveSpeed = 5f; //移动速度
+    public float moveSpeed = 4f; //移动速度
     public float horizontalInput; //水平方向输入
     public float verticalInput; //垂直方向输入
     public Vector3 inputDirection; //输入方向
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     public float maxHp = 100f; //最大生命值
 
     //金币值
-    public int coin = 200; //初始金币
+    public int coin = 0; //初始金币
 
     //攻击
     public float attackPower = 30;
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
     //下落
     public bool isGrounded = true; //是否在地面上
-    public float gravity = -3.5f; //重力
+    public float gravity = -3f; //重力
 
 
     private void Awake()
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
         //翻滚中
         if (isRolling)
         {
-            _rb.velocity = transform.forward * moveSpeed * 1.5f;
+            _rb.velocity = transform.forward * moveSpeed * 1f;
 
             return;
         }
@@ -183,10 +183,6 @@ public class Player : MonoBehaviour
 
         //移动函数
         _rb.velocity = inputDirection * moveSpeed;
-
-
-
-
     }
 
 
@@ -220,7 +216,6 @@ public class Player : MonoBehaviour
         isDead = true;
 
         _anim.SetTrigger("Dead");
-
 
         //游戏失败
         GameManager.Instance.GameOver();
@@ -260,7 +255,6 @@ public class Player : MonoBehaviour
     public void OpenAttackTrigger()
     {
         _attackTriggerBox.enabled = true;
-        Debug.Log("打开碰撞器");
     }
 
 
@@ -268,7 +262,6 @@ public class Player : MonoBehaviour
     public void CloseAttackTrigger()
     {
         _attackTriggerBox.enabled = false;
-        Debug.Log("关闭碰撞器");
     }
 
 
@@ -280,13 +273,19 @@ public class Player : MonoBehaviour
 
     }
 
+    public void ReduceCoin(int b)
+    {
+        coin -= b;
+        GameManager.Instance.UpdateCoin();
+
+    }
+
 
     //增加血量
     public void AddHealth(float h)
     {
         hp = MathF.Min(hp + h, maxHp);
         GameManager.Instance.UpdateHealth();
-
     }
 
 }

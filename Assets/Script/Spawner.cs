@@ -47,6 +47,7 @@ public class Spawner : MonoBehaviour
             isSpawning = false;
         }
 
+        //2层敌人死光了
         if (remainEnemies == 6 && !isSpawning)
         {
             //开启栅栏
@@ -54,11 +55,10 @@ public class Spawner : MonoBehaviour
             Gate3.Instance.OpenGate();
 
             //生成第三波敌人
-            SpawnEnemy(spawnPosList3, enemy2);
+            RandomSpawnEnemy(spawnPosList3, enemy1, enemy2);
 
             //关闭生成器
             isSpawning = true;
-
         }
 
         if (remainEnemies == 0 && !GameManager.Instance.isWin)
@@ -75,6 +75,24 @@ public class Spawner : MonoBehaviour
         foreach (var pos in spawnList)
         {
             Instantiate(enemyType, pos);
+
+        }
+    }
+
+    //随机生成敌人
+    public void RandomSpawnEnemy(List<Transform> spawnList, GameObject enemyType1, GameObject enemyType2)
+    {
+        foreach (var pos in spawnList)
+        {
+            int index = UnityEngine.Random.Range(0, 2);
+            if (index == 1)
+            {
+                Instantiate(enemyType1, pos);
+            }
+            else
+            {
+                Instantiate(enemyType2, pos);
+            }
 
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;  //伤害值
-    private float speed = 4f; //飞行速度
+    private float speed = 8f; //飞行速度
     public Vector3 direction; //方向 
 
     public float timeout = 5f; //超时销毁

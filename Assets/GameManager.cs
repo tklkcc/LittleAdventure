@@ -118,10 +118,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    //²¨´ÎÊ¤Àû
+    //Ê¤Àû
     public void Win()
     {
         StartCoroutine(ShowWinPanel());
+        StartCoroutine(WaitGoMainMenu());
     }
 
 

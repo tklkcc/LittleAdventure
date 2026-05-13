@@ -5,6 +5,7 @@ using UnityEngine.VFX;
 
 public class PlayerVFXManager : MonoBehaviour
 {
+    public static PlayerVFXManager Instance;
 
     public VisualEffect footStep; //移动
     public VisualEffect heal; //回血特效
@@ -68,5 +69,10 @@ public class PlayerVFXManager : MonoBehaviour
     public void PlayAttackVFX03()
     {
         blade03.Play();
+    }
+
+    public void HealthVFX()
+    {
+        heal.Play();
     }
 }
